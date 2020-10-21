@@ -19,7 +19,7 @@ function showPage(list ,page){
           msg += `</li>`;
      }
  }else{
-      for(let i =startIndex; i < stopIndex;i++) {
+      for(let i =startIndex; i < list.length;i++) {
           msg +=`<li class = "student-item cf">`;
           msg += `<div class = student-details>`;
           msg+=`<img class = "avatar" src = ${list[i]['picture']['medium']}>`;
@@ -35,6 +35,27 @@ function showPage(list ,page){
 }
 return msg;
 }
+function createButton(list){
+    let linkList=document.querySelector(".link-list")
+    let number=Math.floor(list.length/9);
+    if(list.length%9!==0){
+        number+=1;
+    }
+    for(let i=1;i<=number;i++){
+        let button=document.createElement('BUTTON');
+        let li=document.createElement('li');
+        button.type="button";
+        button.textContent=i;
+        button.addEventListener("click" , () => {
+            ul.innerHTML = showPage(data, i);
+        })
+        li.appendChild(button);
 
+        linkList.appendChild(li);
+
+    }
+
+
+}
 
 
