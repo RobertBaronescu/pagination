@@ -57,5 +57,27 @@ function createButton(list){
 
 
 }
+   let search=(data,text)=>{
+
+        let objects=[];
+        for (let i = 0 ; i < data.length;i++) {
+            if (data[i]['name']['first'].toLowerCase().includes(text) || data[i]['name']['last'].toLowerCase().includes(text)) {
+                objects.push(data[i]);
+            }
+         
+        }
+
+        return objects;
+}
+
+function removeChildren (parent, childArray) {
+    for (let i = 0; i < childArray.length;i++) {
+        parent.removeChild(childArray[i]);
+    }
+
+}
+
+
+
 
 
